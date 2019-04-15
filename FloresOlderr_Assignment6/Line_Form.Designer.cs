@@ -48,7 +48,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Backbutton);
             this.Name = "Line_Form";
-            this.Text = "Line";
+            this.Text = "Line_Form";
             this.ResumeLayout(false);
 
         }

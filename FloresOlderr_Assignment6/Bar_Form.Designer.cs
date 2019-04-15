@@ -48,7 +48,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Backbutton);
             this.Name = "Bar_Form";
-            this.Text = "Bar";
+            this.Text = "Bar_Form";
             this.ResumeLayout(false);
 
         }

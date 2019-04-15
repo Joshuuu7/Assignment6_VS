@@ -48,7 +48,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Backbutton);
             this.Name = "Donut_Form";
-            this.Text = "Donut";
+            this.Text = "Donut_Form";
             this.ResumeLayout(false);
 
         }
