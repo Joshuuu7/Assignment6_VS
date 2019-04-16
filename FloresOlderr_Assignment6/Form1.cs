@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,12 +18,49 @@ namespace FloresOlderr_Assignment6
         DonutData donutData;
         LineData lineData;
         AreaData areaData;
+        List<string> data = new List<string>();
 
         public Form1()
         {
             barData = new BarData();
             InitializeComponent();
+            data = createChart("data.txt");
+            
         }
+
+        List<string> createChart(string file_name)
+        {
+            List<string> data_values = new List<string>();
+            using (StreamReader input = new StreamReader(file_name))
+            {
+                char r;
+                string number = "";
+                string digits = "0123456789.";
+                StringBuilder wordBuilder = new StringBuilder();
+                while (!input.EndOfStream)
+                {
+                    r = (char)input.Read();
+                    if (r == ',')
+                    {
+                        number = wordBuilder.ToString();
+                        data_values.Add(number);
+                        wordBuilder = new StringBuilder();
+                    }
+                    else if (digits.IndexOf(r) >= 0)
+                    {
+                        wordBuilder.Append(r);
+                    }
+                }
+                number = wordBuilder.ToString();
+                data_values.Add(number);
+            }
+            foreach (string s in data_values) {
+                Console.WriteLine("s = " + s);
+                Console.WriteLine("s = " + s);
+            }
+            return data_values;
+        }
+
 
         public Form1(DonutData DD)
         {
@@ -69,7 +107,7 @@ namespace FloresOlderr_Assignment6
         private void LineButton_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
-            Line_Form line_Form = new Line_Form(lineData);
+            Line_Form line_Form = new Line_Form(data);
             line_Form.Show();
             this.Hide();
             form1.Close();
