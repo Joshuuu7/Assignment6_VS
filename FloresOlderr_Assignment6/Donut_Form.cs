@@ -62,11 +62,6 @@ namespace FloresOlderr_Assignment6
 
             // Frist parameter is X-Axis and Second is Collection of Y- Axis
 
-            //DataPoint point = new DataPoint();
-
-            //point.ToolTip = string.Format("{0}, {1: #,0}", months, double_data_2017);
-            //series_2017.Points.Add(point);
-
             series_2017.Points[0].Color = System.Drawing.Color.Orange;
             series_2017.Points[1].Color = System.Drawing.Color.Green;
             series_2017.Points[2].Color = System.Drawing.Color.SpringGreen;
