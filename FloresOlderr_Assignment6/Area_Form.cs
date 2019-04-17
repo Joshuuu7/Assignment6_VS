@@ -12,13 +12,7 @@ namespace FloresOlderr_Assignment6
 {
     public partial class Area_Form : Form
     {
-        AreaData AD;
         public List<string> data_values;
-
-        public Area_Form(AreaData AD)
-        {
-            InitializeComponent();
-        }
 
         public Area_Form(List<string> data_values)
         {

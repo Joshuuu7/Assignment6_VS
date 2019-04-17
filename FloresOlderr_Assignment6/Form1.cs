@@ -13,12 +13,8 @@ namespace FloresOlderr_Assignment6
 {
     public partial class Form1 : Form
     {
-
-        BarData barData;
-        DonutData donutData;
-        LineData lineData;
-        AreaData areaData;
         List<string> data = new List<string>();
+
 
         public Form1()
         {
@@ -59,35 +55,20 @@ namespace FloresOlderr_Assignment6
             return data_values;
         }
 
-
-        public Form1(DonutData DD)
-        {
-            donutData = DD;
-            InitializeComponent();
-        }
-
-        public Form1(LineData LD)
-        {
-            lineData = LD;
-            InitializeComponent();
-        }
-
-        public Form1(BarData BD)
-        {
-            barData = BD;
-            InitializeComponent();
-        }
-
-        public Form1(AreaData AD)
-        {
-            areaData = AD;
-            InitializeComponent();
-        }
-
         private void BarButton_Click(object sender, EventArgs e)
         {
+            List<string> data_values_2017 = new List<string>();
+
+            for (int i = 0; i < 48; i++)
+            {
+                if (i >= 36 && i < 48)
+                {
+                    data_values_2017.Add(data.ElementAt(i));
+                }
+            }
+
             Form1 form1 = new Form1();
-            Bar_Form bar_Form = new Bar_Form(data);
+            Bar_Form bar_Form = new Bar_Form(data_values_2017);
             bar_Form.Show();
             this.Hide();
             form1.Close();
@@ -102,10 +83,6 @@ namespace FloresOlderr_Assignment6
                 if (i >= 36 && i < 48)
                 {
                     data_values_2017.Add(data.ElementAt(i));
-                }
-                else
-                {
-
                 }
             }
 
@@ -157,42 +134,6 @@ namespace FloresOlderr_Assignment6
             area_Form.Show();
             this.Hide();
             form1.Close();
-        }
-    }
-
-    public class BarData
-    {
-        public Bar_Form bar_Form;
-        public BarData()
-        {
-
-        }
-    }
-
-    public class DonutData
-    {
-        public Donut_Form bar_Form;
-        public DonutData()
-        {
-
-        }
-    }
-
-    public class LineData
-    {
-        public Line_Form bar_Form;
-        public LineData()
-        {
-
-        }
-    }
-
-    public class AreaData
-    {
-        public Area_Form bar_Form;
-        public AreaData()
-        {
-
         }
     }
 }

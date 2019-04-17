@@ -13,18 +13,12 @@ namespace FloresOlderr_Assignment6
 {
     public partial class Line_Form : Form
     {
-        LineData LD;
         public List<string> data_values_2014;
         public List<string> data_values_2015;
         public List<string> data_values_2016;
         public List<string> data_values_2017;
 
         enum Month { January, February, March, April, May, June, July, August, September, October, November, December };
-
-        public Line_Form(LineData LD)
-        {
-            InitializeComponent();
-        }
 
         public Line_Form(List<string> data_values_2014, List<string> data_values_2015, List<string> data_values_2016, List<string> data_values_2017)
         {
@@ -83,33 +77,12 @@ namespace FloresOlderr_Assignment6
 
             //double lowest = double_data.Min();
             //double highest = double_data.Max();
+            //double lowest_value = Convert.ToDouble(data_values.Min(x => x.Min()));
+            //double highest_value = Convert.ToDouble(data_values.Max(x => x.Max()));
 
             Title Line_Chart_Title = new Title("Bike Share Statistics (2014 - 2017)" + Environment.NewLine + "(Amount rented per month)", Docking.Top, new Font("Yu Gothic", 8, FontStyle.Bold), Color.Black);
 
-            Line_Graph.Titles.Add(Line_Chart_Title);
-
-            //for(int i = 0; i < 48; i++)
-            //{
-            //    if( i < 12 )
-            //    {
-            //        data_values_2014.Add(data_values.ElementAt(i));
-            //    }
-            //    else if ( i >= 12 && i < 24)
-            //    {
-            //        data_values_2015.Add(data_values.ElementAt(i));
-            //    }
-            //    else if (i >= 24 && i < 36)
-            //    {
-            //        data_values_2016.Add(data_values.ElementAt(i));
-            //    }
-            //    else
-            //    {
-            //        data_values_2017.Add(data_values.ElementAt(i));
-            //    }
-            //}      
-            
-            //double lowest_value = Convert.ToDouble(data_values.Min(x => x.Min()));
-            //double highest_value = Convert.ToDouble(data_values.Max(x => x.Max()));
+            Line_Graph.Titles.Add(Line_Chart_Title);   
 
             var series_2014 = new Series("Bike Share 2014");
             var series_2015 = new Series("Bike Share 2015");
@@ -177,8 +150,6 @@ namespace FloresOlderr_Assignment6
             Line_Graph.Series.Add(series_2015);
             Line_Graph.Series.Add(series_2016);
             Line_Graph.Series.Add(series_2017);
-
-            //chart1.Series[0].Points[0].Color = Color.Green;
         }
     }
 }

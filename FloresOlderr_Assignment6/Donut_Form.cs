@@ -13,20 +13,14 @@ namespace FloresOlderr_Assignment6
 {
     public partial class Donut_Form : Form
     {
-        DonutData DD;
-        public List<string> data_values;
+        public List<string> data_values_2017;
 
         Point? prevPosition = null;
         ToolTip tooltip = new ToolTip();
 
-        public Donut_Form(DonutData DD)
+        public Donut_Form(List<string> data_values_2017)
         {
-            InitializeComponent();
-        }
-
-        public Donut_Form(List<string> data_values)
-        {
-            this.data_values = data_values;
+            this.data_values_2017 = data_values_2017;
             InitializeComponent();
         }
 
@@ -34,7 +28,7 @@ namespace FloresOlderr_Assignment6
         {
             Form1 form1 = new Form1();
 
-            Donut_Form donut_Form = new Donut_Form(data_values);
+            Donut_Form donut_Form = new Donut_Form(data_values_2017);
             form1.Show();
             this.Hide();
             donut_Form.Close();
@@ -47,25 +41,11 @@ namespace FloresOlderr_Assignment6
             List<double> double_data_2017 = new List<double>();
             double string_to_number = 0;
 
-            List<string> data_values_2017 = new List<string>();
-
             Title Donut_Chart_Title = new Title("Bike Share Statistics (2017)" + Environment.NewLine + "(Amount rented per month)", Docking.Top, new Font("Yu Gothic", 8, FontStyle.Bold), Color.Black);
 
             Donut_Chart.Titles.Add(Donut_Chart_Title);
 
-            //for (int i = 0; i < 48; i++)
-            //{
-            //    if (i >= 36 && i < 48)
-            //    {
-            //        data_values_2017.Add(data_values.ElementAt(i));
-            //    }
-            //    else
-            //    {
-
-            //    }
-            //}
-
-            foreach (string data in data_values)
+            foreach (string data in data_values_2017)
             {
                 string_to_number = Convert.ToDouble(data);
                 double_data_2017.Add(string_to_number);
