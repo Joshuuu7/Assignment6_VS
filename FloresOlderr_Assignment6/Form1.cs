@@ -22,10 +22,8 @@ namespace FloresOlderr_Assignment6
 
         public Form1()
         {
-            barData = new BarData();
             InitializeComponent();
-            data = createChart("data.txt");
-            
+            data = createChart("data.txt");            
         }
 
         List<string> createChart(string file_name)
@@ -89,7 +87,7 @@ namespace FloresOlderr_Assignment6
         private void BarButton_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
-            Bar_Form bar_Form = new Bar_Form(barData);
+            Bar_Form bar_Form = new Bar_Form(data);
             bar_Form.Show();
             this.Hide();
             form1.Close();
@@ -97,8 +95,22 @@ namespace FloresOlderr_Assignment6
 
         private void DonutButton_Click(object sender, EventArgs e)
         {
+            List<string> data_values_2017 = new List<string>();
+
+            for (int i = 0; i < 48; i++)
+            {
+                if (i >= 36 && i < 48)
+                {
+                    data_values_2017.Add(data.ElementAt(i));
+                }
+                else
+                {
+
+                }
+            }
+
             Form1 form1 = new Form1();
-            Donut_Form donut_Form = new Donut_Form(donutData);
+            Donut_Form donut_Form = new Donut_Form(data_values_2017);
             donut_Form.Show();
             this.Hide();
             form1.Close();
@@ -106,8 +118,33 @@ namespace FloresOlderr_Assignment6
 
         private void LineButton_Click(object sender, EventArgs e)
         {
+            List<string> data_values_2014 = new List<string>();
+            List<string> data_values_2015 = new List<string>();
+            List<string> data_values_2016 = new List<string>();
+            List<string> data_values_2017 = new List<string>();
+
+            for (int i = 0; i <= data.Count - 1; i++)
+            {
+                if (i < 12)
+                {
+                    data_values_2014.Add(data.ElementAt(i));
+                }
+                else if (i >= 12 && i < 24)
+                {
+                    data_values_2015.Add(data.ElementAt(i));
+                }
+                else if (i >= 24 && i < 36)
+                {
+                    data_values_2016.Add(data.ElementAt(i));
+                }
+                else
+                {
+                    data_values_2017.Add(data.ElementAt(i));
+                }
+            }
+
             Form1 form1 = new Form1();
-            Line_Form line_Form = new Line_Form(data);
+            Line_Form line_Form = new Line_Form(data_values_2014, data_values_2015, data_values_2016, data_values_2017);
             line_Form.Show();
             this.Hide();
             form1.Close();
@@ -116,7 +153,7 @@ namespace FloresOlderr_Assignment6
         private void AreaButton_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
-            Area_Form area_Form = new Area_Form(areaData);
+            Area_Form area_Form = new Area_Form(data);
             area_Form.Show();
             this.Hide();
             form1.Close();

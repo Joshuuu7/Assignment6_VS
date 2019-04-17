@@ -7,28 +7,108 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace FloresOlderr_Assignment6
 {
     public partial class Donut_Form : Form
     {
         DonutData DD;
+        public List<string> data_values;
+
+        Point? prevPosition = null;
+        ToolTip tooltip = new ToolTip();
 
         public Donut_Form(DonutData DD)
         {
             InitializeComponent();
         }
 
+        public Donut_Form(List<string> data_values)
+        {
+            this.data_values = data_values;
+            InitializeComponent();
+        }
+
         private void Backbutton_Click(object sender, EventArgs e)
         {
-            DD = new DonutData();
+            Form1 form1 = new Form1();
 
-            Form1 form1 = new Form1(DD);
-
-            Donut_Form donut_Form = new Donut_Form(DD);
+            Donut_Form donut_Form = new Donut_Form(data_values);
             form1.Show();
             this.Hide();
             donut_Form.Close();
+        }
+
+        private void Donut_Form_Load(object sender, EventArgs e)
+        {
+            Donut_Chart.Series.Clear();
+
+            List<double> double_data_2017 = new List<double>();
+            double string_to_number = 0;
+
+            List<string> data_values_2017 = new List<string>();
+
+            Title Donut_Chart_Title = new Title("Bike Share Statistics (2017)" + Environment.NewLine + "(Amount rented per month)", Docking.Top, new Font("Yu Gothic", 8, FontStyle.Bold), Color.Black);
+
+            Donut_Chart.Titles.Add(Donut_Chart_Title);
+
+            //for (int i = 0; i < 48; i++)
+            //{
+            //    if (i >= 36 && i < 48)
+            //    {
+            //        data_values_2017.Add(data_values.ElementAt(i));
+            //    }
+            //    else
+            //    {
+
+            //    }
+            //}
+
+            foreach (string data in data_values)
+            {
+                string_to_number = Convert.ToDouble(data);
+                double_data_2017.Add(string_to_number);
+            }
+
+            var series_2017 = new Series("Bike Share 2017");
+
+            string[] months = { "January", "February", "March", "April", "May", "June",
+                                 "July", "August", "September", "October", "November", "December"};
+
+            series_2017.ChartType = SeriesChartType.Doughnut;
+
+            series_2017.Points.DataBindXY(months, double_data_2017);
+            series_2017.IsValueShownAsLabel = true;
+            series_2017.LabelFormat = "{ #,0 }";
+            series_2017.LabelForeColor = Color.White;         
+
+            // Frist parameter is X-Axis and Second is Collection of Y- Axis
+
+            DataPoint point = new DataPoint();
+
+            point.ToolTip = string.Format("{0}, {1}", months, double_data_2017);
+            series_2017.Points.Add(point);
+
+            series_2017.Points[0].Color = System.Drawing.Color.Orange;
+            series_2017.Points[1].Color = System.Drawing.Color.Green;
+            series_2017.Points[2].Color = System.Drawing.Color.SpringGreen;
+            series_2017.Points[3].Color = System.Drawing.Color.Maroon;
+            series_2017.Points[4].Color = System.Drawing.Color.Gold;
+            series_2017.Points[5].Color = System.Drawing.Color.Gray;
+            series_2017.Points[6].Color = System.Drawing.Color.Moccasin;
+            series_2017.Points[7].Color = System.Drawing.Color.Indigo;
+            series_2017.Points[8].Color = System.Drawing.Color.HotPink;
+            series_2017.Points[9].Color = System.Drawing.Color.Olive;
+            series_2017.Points[10].Color = System.Drawing.Color.Red;
+            series_2017.Points[11].Color = System.Drawing.Color.Turquoise;
+
+            Donut_Chart.Series.Add(series_2017);
+        }
+
+        private void Tooltip_Show(object sender, EventArgs e)
+        {
+
         }
     }
 }
