@@ -49,6 +49,7 @@ namespace FloresOlderr_Assignment6
             Title Line_Chart_Title = new Title("Bike Share Statistics" + Environment.NewLine + "(Amount rented per month)", Docking.Top, new Font("Yu Gothic", 8, FontStyle.Bold), Color.Black);
 
             chart1.Titles.Add(Line_Chart_Title);
+            //chart1.Legends.RemoveAt(0);
 
             for(int i = 0; i < 48; i++)
             {
@@ -76,10 +77,8 @@ namespace FloresOlderr_Assignment6
             var series16 = new Series("Bike Share 2016");
             var series17 = new Series("Bike Share 2017");
 
-            string[] months = { "Jan", "Feb", "March", "April", "May", "June",
-                                 "July", "Sep", "Oct", "Nov", "Dec"};
-
-            int[] month_numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+            string[] months = { "January", "February", "March", "April", "May", "June",
+                                 "July", "August", "September", "October", "November", "December"};
 
             series14.ChartType = SeriesChartType.Line;
             series15.ChartType = SeriesChartType.Line;
@@ -88,10 +87,19 @@ namespace FloresOlderr_Assignment6
 
             // Frist parameter is X-Axis and Second is Collection of Y- Axis
 
-            series14.Points.DataBindXY( month_numbers, data_values_2014 );
-            series15.Points.DataBindXY( month_numbers, data_values_2015 );
-            series16.Points.DataBindXY( month_numbers, data_values_2016 );
-            series17.Points.DataBindXY( month_numbers, data_values_2017 );
+            series14.Points.DataBindXY( months, data_values_2014 );
+            series15.Points.DataBindXY( months, data_values_2015 );
+            series16.Points.DataBindXY( months, data_values_2016 );
+            series17.Points.DataBindXY( months, data_values_2017 );
+
+            chart1.ChartAreas["ChartArea1"].AxisX.Interval = 1;
+            chart1.ChartAreas["ChartArea1"].AxisX.Minimum = 1;
+            chart1.ChartAreas["ChartArea1"].AxisX.Maximum = 12;
+            chart1.ChartAreas["ChartArea1"].AxisX.LabelStyle.Angle = -45;
+
+            chart1.ChartAreas["ChartArea1"].AxisY.Interval = 1000;
+            chart1.ChartAreas["ChartArea1"].AxisY.Minimum = 2500;
+            chart1.ChartAreas["ChartArea1"].AxisY.Maximum = 5000;
 
             chart1.Series.Add(series14);
             chart1.Series.Add(series15);
