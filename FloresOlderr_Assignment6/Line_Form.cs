@@ -41,6 +41,8 @@ namespace FloresOlderr_Assignment6
 
         private void Line_Form_Load(object sender, EventArgs e)
         {
+            chart1.Series.Clear();
+
             List<string> data_values_2014 = new List<string>();
             List<string> data_values_2015 = new List<string>();
             List<string> data_values_2016 = new List<string>();
@@ -49,7 +51,6 @@ namespace FloresOlderr_Assignment6
             Title Line_Chart_Title = new Title("Bike Share Statistics" + Environment.NewLine + "(Amount rented per month)", Docking.Top, new Font("Yu Gothic", 8, FontStyle.Bold), Color.Black);
 
             chart1.Titles.Add(Line_Chart_Title);
-            //chart1.Legends.RemoveAt(0);
 
             for(int i = 0; i < 48; i++)
             {
@@ -99,7 +100,7 @@ namespace FloresOlderr_Assignment6
 
             chart1.ChartAreas["ChartArea1"].AxisY.Interval = 1000;
             chart1.ChartAreas["ChartArea1"].AxisY.Minimum = 2500;
-            chart1.ChartAreas["ChartArea1"].AxisY.Maximum = 5000;
+            chart1.ChartAreas["ChartArea1"].AxisY.Maximum = 4500;
 
             chart1.Series.Add(series14);
             chart1.Series.Add(series15);
