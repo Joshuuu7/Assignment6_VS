@@ -129,8 +129,17 @@ namespace FloresOlderr_Assignment6
 
         private void AreaButton_Click(object sender, EventArgs e)
         {
+            List<string> data_values_2017 = new List<string>();
+
+            for (int i = 0; i < 48; i++)
+            {
+                if (i >= 36 && i < 48)
+                {
+                    data_values_2017.Add(data.ElementAt(i));
+                }
+            }
             Form1 form1 = new Form1();
-            Area_Form area_Form = new Area_Form(data);
+            Area_Form area_Form = new Area_Form(data_values_2017);
             area_Form.Show();
             this.Hide();
             form1.Close();

@@ -45,11 +45,6 @@ namespace FloresOlderr_Assignment6
                 double_data_2017.Add(string_to_number_2017);
             }
 
-            //double lowest = double_data.Min();
-            //double highest = double_data.Max();
-            //double lowest_value = Convert.ToDouble(data_values.Min(x => x.Min()));
-            //double highest_value = Convert.ToDouble(data_values.Max(x => x.Max()));
-
             Title Line_Chart_Title = new Title("Bike Share Statistics (2014 - 2017)" + Environment.NewLine + "(Amount rented per month)", Docking.Top, new Font("Yu Gothic", 8, FontStyle.Bold), Color.Black);
 
             Bar_Chart.Titles.Add(Line_Chart_Title);
