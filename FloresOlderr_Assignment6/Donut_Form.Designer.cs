@@ -61,7 +61,7 @@
             this.Donut_Chart.Size = new System.Drawing.Size(760, 320);
             this.Donut_Chart.TabIndex = 2;
             this.Donut_Chart.Text = "chart1";
-            this.Donut_Chart.MouseEnter += new System.EventHandler(this.Tooltip_Show);
+            this.Donut_Chart.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Donut_Chart_MouseMove);
             // 
             // Donut_Form
             // 

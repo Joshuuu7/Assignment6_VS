@@ -15,9 +15,6 @@ namespace FloresOlderr_Assignment6
     {
         public List<string> data_values_2017;
 
-        Point? prevPosition = null;
-        ToolTip tooltip = new ToolTip();
-
         public Donut_Form(List<string> data_values_2017)
         {
             this.data_values_2017 = data_values_2017;
@@ -65,10 +62,10 @@ namespace FloresOlderr_Assignment6
 
             // Frist parameter is X-Axis and Second is Collection of Y- Axis
 
-            DataPoint point = new DataPoint();
+            //DataPoint point = new DataPoint();
 
-            point.ToolTip = string.Format("{0}, {1}", months, double_data_2017);
-            series_2017.Points.Add(point);
+            //point.ToolTip = string.Format("{0}, {1: #,0}", months, double_data_2017);
+            //series_2017.Points.Add(point);
 
             series_2017.Points[0].Color = System.Drawing.Color.Orange;
             series_2017.Points[1].Color = System.Drawing.Color.Green;
@@ -86,9 +83,19 @@ namespace FloresOlderr_Assignment6
             Donut_Chart.Series.Add(series_2017);
         }
 
-        private void Tooltip_Show(object sender, EventArgs e)
+        private void Donut_Chart_MouseMove(object sender, MouseEventArgs e)
         {
+            HitTestResult result = Donut_Chart.HitTest(e.X, e.Y);
+            System.Drawing.Point p = new System.Drawing.Point(e.X, e.Y);
 
+            Donut_Chart.ChartAreas[0].CursorX.Interval = 0;
+            Donut_Chart.ChartAreas[0].CursorX.SetCursorPixelPosition(p, true);
+            Donut_Chart.ChartAreas[0].CursorY.SetCursorPixelPosition(p, true);
+
+            for (int n = 0; n < 12; n++)
+            {
+                Donut_Chart.Series[0].Points[n].ToolTip = "#VALX : " + string.Format("{0: #,0}", "#VALY");
+            }
         }
     }
 }
