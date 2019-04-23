@@ -114,8 +114,8 @@ namespace FloresOlderr_Assignment6
 
             series_2017.Points.DataBindXY(months, data_values_2017);
             series_2017.IsValueShownAsLabel = true;
-            series_2017.LabelFormat = "{ #,0 }";
-            series_2017.LabelForeColor = Color.BlueViolet;
+            series_2017.LabelFormat = "{ #,0.# }";
+            series_2017.LabelForeColor = Color.Firebrick;
 
             Bar_Chart.ChartAreas["ChartArea1"].AxisX.Interval = 1;
             Bar_Chart.ChartAreas["ChartArea1"].AxisX.Minimum = 1;
@@ -126,6 +126,7 @@ namespace FloresOlderr_Assignment6
             Bar_Chart.ChartAreas["ChartArea1"].AxisY.Minimum = 2500; //lowest - 100;
             Bar_Chart.ChartAreas["ChartArea1"].AxisY.Maximum = 4500; //highest + 100;            
 
+            series_2017["PointWidth"] = ".5";
             series_2017.Color = System.Drawing.Color.BlueViolet;
 
             Bar_Chart.Series.Add(series_2017);

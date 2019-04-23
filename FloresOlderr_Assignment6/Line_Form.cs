@@ -166,23 +166,23 @@ namespace FloresOlderr_Assignment6
 
             series_2014.Points.DataBindXY(months, data_values_2014);
             series_2014.IsValueShownAsLabel = true;
-            series_2014.LabelFormat = "{ #,0 }";
+            series_2014.LabelFormat = "{ #,0.# }";
             series_2014.LabelForeColor = Color.Green;
 
             series_2015.Points.DataBindXY(months, data_values_2015);
             series_2015.IsValueShownAsLabel = true;
-            series_2015.LabelFormat = "{ #,0 }";
+            series_2015.LabelFormat = "{ #,0.# }";
             series_2015.LabelForeColor = Color.Indigo;
 
             series_2016.Points.DataBindXY(months, data_values_2016);
             series_2016.IsValueShownAsLabel = true;
-            series_2016.LabelFormat = "{ #,0 }";
-            series_2016.LabelForeColor = Color.Bisque;
+            series_2016.LabelFormat = "{ #,0.# }";
+            series_2016.LabelForeColor = Color.DarkOrange;
 
             series_2017.Points.DataBindXY(months, data_values_2017);
             series_2017.IsValueShownAsLabel = true;
-            series_2017.LabelFormat = "{ #,0 }";
-            series_2017.LabelForeColor = Color.BlueViolet;
+            series_2017.LabelFormat = "{ #,0.# }";
+            series_2017.LabelForeColor = Color.Salmon;
 
             Line_Graph.ChartAreas["ChartArea1"].AxisX.Interval = 1;
             Line_Graph.ChartAreas["ChartArea1"].AxisX.Minimum = 1;
@@ -195,8 +195,8 @@ namespace FloresOlderr_Assignment6
 
             series_2014.Color = System.Drawing.Color.Green;
             series_2015.Color = System.Drawing.Color.Indigo;
-            series_2016.Color = System.Drawing.Color.Bisque;
-            series_2017.Color = System.Drawing.Color.BlueViolet;
+            series_2016.Color = System.Drawing.Color.DarkOrange;
+            series_2017.Color = System.Drawing.Color.Salmon;
 
             Line_Graph.Series.Add(series_2014);
             Line_Graph.Series.Add(series_2015);

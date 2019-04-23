@@ -109,7 +109,7 @@ namespace FloresOlderr_Assignment6
 
             series_2017.Points.DataBindXY(months, double_data_2017);
             series_2017.IsValueShownAsLabel = true;
-            series_2017.LabelFormat = "{ #,0 }";
+            series_2017.LabelFormat = "{ #,0.# }";
             series_2017.LabelForeColor = Color.White;
 
             // Frist parameter is X-Axis and Second is Collection of Y- Axis. Values added to graph. 
