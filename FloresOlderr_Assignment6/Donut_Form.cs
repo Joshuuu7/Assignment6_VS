@@ -90,7 +90,7 @@ namespace FloresOlderr_Assignment6
             List<double> double_data_2017 = new List<double>();
             double string_to_number = 0;
 
-            Title Donut_Chart_Title = new Title("Bike Share Statistics (2017)" + Environment.NewLine + "(Amount rented per month)", Docking.Top, new Font("Yu Gothic", 8, FontStyle.Bold), Color.Black);
+            Title Donut_Chart_Title = new Title("Bike Share Statistics (2017)" + Environment.NewLine + "(Amount rented per month in seconds)", Docking.Top, new Font("Yu Gothic", 8, FontStyle.Bold), Color.Black);
 
             Donut_Chart.Titles.Add(Donut_Chart_Title);
 

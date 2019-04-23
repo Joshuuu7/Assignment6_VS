@@ -97,7 +97,7 @@ namespace FloresOlderr_Assignment6
                 double_data_2017.Add(string_to_number_2017);
             }
 
-            Title Area_Chart_Title = new Title("Bike Share Statistics (2014 - 2017)" + Environment.NewLine + "(Amount rented per month)", Docking.Top, new Font("Yu Gothic", 8, FontStyle.Bold), Color.Black);
+            Title Area_Chart_Title = new Title("Bike Share Statistics (2017)" + Environment.NewLine + "(Amount rented per month in seconds)", Docking.Top, new Font("Yu Gothic", 8, FontStyle.Bold), Color.Black);
 
             Area_Chart.Titles.Add(Area_Chart_Title);
 

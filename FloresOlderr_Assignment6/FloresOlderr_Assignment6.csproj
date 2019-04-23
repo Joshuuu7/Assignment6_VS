@@ -71,6 +71,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Joke_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Joke_Form.Designer.cs">
+      <DependentUpon>Joke_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Line_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Joke_Form.resx">
+      <DependentUpon>Joke_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Line_Form.resx">
       <DependentUpon>Line_Form.cs</DependentUpon>

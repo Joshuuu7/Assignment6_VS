@@ -88,6 +88,9 @@ namespace FloresOlderr_Assignment6
             Bar_Chart.Series.Clear();
 
             List<double> double_data_2017 = new List<double>();
+            List<string> time_string = new List<string>();
+            double seconds = 0;
+            string time = "";
 
             double string_to_number_2017 = 0;
 
@@ -95,9 +98,12 @@ namespace FloresOlderr_Assignment6
             {
                 string_to_number_2017 = Convert.ToDouble(data);
                 double_data_2017.Add(string_to_number_2017);
+                seconds = Convert.ToInt32(Convert.ToDouble(data));
+                time = TimeDisplay(seconds);
+                time_string.Add(time);
             }
 
-            Title Line_Chart_Title = new Title("Bike Share Statistics (2014 - 2017)" + Environment.NewLine + "(Amount rented per month)", Docking.Top, new Font("Yu Gothic", 8, FontStyle.Bold), Color.Black);
+            Title Line_Chart_Title = new Title("Bike Share Statistics (2017)" + Environment.NewLine + "(Amount rented per month in seconds)", Docking.Top, new Font("Yu Gothic", 8, FontStyle.Bold), Color.Black);
 
             Bar_Chart.Titles.Add(Line_Chart_Title);
 
@@ -111,10 +117,17 @@ namespace FloresOlderr_Assignment6
             // Frist parameter is X-Axis and Second is Collection of Y- Axis. Values added to graph. 
 
             series_2017.Points.DataBindXY(months, data_values_2017);
-
-            series_2017.Points.DataBindXY(months, data_values_2017);
             series_2017.IsValueShownAsLabel = true;
+            string format_string = "";
+
+            //foreach (string time_format in time_string)
+            //{
+            //    format_string = "{ 0: #,0.# }" + " Minutes : Seconds = " + time_format;
+            //    series_2017.LabelFormat = format_string;
+            //}
+
             series_2017.LabelFormat = "{ #,0.# }";
+
             series_2017.LabelForeColor = Color.Firebrick;
 
             Bar_Chart.ChartAreas["ChartArea1"].AxisX.Interval = 1;
@@ -174,6 +187,17 @@ namespace FloresOlderr_Assignment6
             form1.Show();
             this.Hide();
             bar_Form.Close();
+        }
+
+        int[] MinutesAndSeconds(double seconds)
+        {
+            return new int[] { Convert.ToInt32(seconds / 60), Convert.ToInt32(seconds % 60) };
+        }
+
+        string TimeDisplay(double seconds)
+        {
+            int[] minutesAndSeconds = MinutesAndSeconds(seconds);
+            return minutesAndSeconds[0] + ":" + minutesAndSeconds[1];
         }
     }
 }

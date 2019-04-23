@@ -32,6 +32,7 @@ namespace FloresOlderr_Assignment6
     public partial class Form1 : Form
     {
         List<string> data = new List<string>();
+        List<string> time_separated_data = new List<string>();
 
         /********************************************************************************
         * 
@@ -109,6 +110,7 @@ namespace FloresOlderr_Assignment6
                 if (i >= 36 && i < 48)
                 {
                     data_values_2017.Add(data.ElementAt(i));
+                    Console.WriteLine(data.ElementAt(i));
                 }
             }
 
@@ -262,6 +264,15 @@ namespace FloresOlderr_Assignment6
             this.Hide();
             form1.Close();
             Environment.Exit(0);
+        }
+
+        private void JokeButton_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            Joke_Form joke_Form = new Joke_Form();
+            joke_Form.Show();
+            this.Hide();
+            form1.Close();
         }
     }
 }

@@ -33,6 +33,7 @@
             this.LineButton = new System.Windows.Forms.Button();
             this.DonutButton = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
+            this.JokeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BarButton
@@ -85,11 +86,22 @@
             this.ExitButton.UseVisualStyleBackColor = true;
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
+            // JokeButton
+            // 
+            this.JokeButton.Location = new System.Drawing.Point(380, 260);
+            this.JokeButton.Name = "JokeButton";
+            this.JokeButton.Size = new System.Drawing.Size(75, 23);
+            this.JokeButton.TabIndex = 5;
+            this.JokeButton.Text = "Donuts";
+            this.JokeButton.UseVisualStyleBackColor = true;
+            this.JokeButton.Click += new System.EventHandler(this.JokeButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.JokeButton);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.DonutButton);
             this.Controls.Add(this.LineButton);
@@ -109,6 +121,7 @@
         private System.Windows.Forms.Button LineButton;
         private System.Windows.Forms.Button DonutButton;
         private System.Windows.Forms.Button ExitButton;
+        private System.Windows.Forms.Button JokeButton;
     }
 }
 
