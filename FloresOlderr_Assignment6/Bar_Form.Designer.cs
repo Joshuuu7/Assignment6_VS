@@ -61,6 +61,7 @@
             this.Bar_Chart.Size = new System.Drawing.Size(760, 320);
             this.Bar_Chart.TabIndex = 3;
             this.Bar_Chart.Text = "chart1";
+            this.Bar_Chart.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Bar_Graph_MouseMove);
             // 
             // Bar_Form
             // 
@@ -71,6 +72,7 @@
             this.Controls.Add(this.Backbutton);
             this.Name = "Bar_Form";
             this.Text = "Bar_Form";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BarForm_Closed);
             this.Load += new System.EventHandler(this.Bar_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Bar_Chart)).EndInit();
             this.ResumeLayout(false);

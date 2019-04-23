@@ -1,4 +1,22 @@
-﻿using System;
+﻿/********************************************************************************
+ * 
+ * Programmers: Joshua Flores, Adam Olderr
+ * 
+ * z-IDs: 1682720, 1753651
+ * 
+ * Assignment Number: 6
+ * 
+ * Due Date: April 25th, 2019
+ * 
+ * Class: CSCI504
+ * 
+ * Instructor: Daniel Rogness
+ * 
+ * Teaching Assistants: Aravind Muvva, Kiranmayi Manukonda
+ * 
+ * *******************************************************************************/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,16 +39,41 @@ namespace FloresOlderr_Assignment6
             InitializeComponent();
         }
 
+        /********************************************************************************
+        * 
+        * Method: Backbutton_Click
+        * 
+        * Arguments: object sender, EventArgs e
+        * 
+        * Return Type: void
+        * 
+        * Purpose: Creates a new Form1 instance, initializes a new Bar_Form instance, 
+        *          closes the current form, and opens the main menu (Form1).
+        * 
+        * *******************************************************************************/
         private void Backbutton_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
-
             Bar_Form bar_Form = new Bar_Form(data_values_2017);
             form1.Show();
             this.Hide();
             bar_Form.Close();
         }
 
+        /********************************************************************************
+        * 
+        * Method: Bar_Form_Load
+        * 
+        * Arguments: object sender, EventArgs e
+        * 
+        * Return Type: void
+        * 
+        * Purpose: Initalizes the List of double with the passed in the form, converts the
+        *          list to string, and uses data as input for chart. X-axis display also
+        *          depends on the count of elements. Chart formats labels, axes, and
+        *          colors accordinlgy and differently by color.
+        * 
+        * *******************************************************************************/
         private void Bar_Form_Load(object sender, EventArgs e)
         {
             Bar_Chart.Series.Clear();
@@ -56,9 +99,8 @@ namespace FloresOlderr_Assignment6
 
             series_2017.ChartType = SeriesChartType.Bar;
 
-            // Frist parameter is X-Axis and Second is Collection of Y- Axis
+            // Frist parameter is X-Axis and Second is Collection of Y- Axis. Values added to graph. 
 
-            // Add values to the graph
             series_2017.Points.DataBindXY(months, data_values_2017);
 
             series_2017.Points.DataBindXY(months, data_values_2017);
@@ -78,6 +120,50 @@ namespace FloresOlderr_Assignment6
             series_2017.Color = System.Drawing.Color.BlueViolet;
 
             Bar_Chart.Series.Add(series_2017);
+        }
+
+        /********************************************************************************
+        * 
+        * Method: Bar_Form_MouseMove
+        * 
+        * Arguments: object sender, EventArgs e
+        * 
+        * Return Type: void
+        * 
+        * Purpose: Takes the mouse coordinates and generates a tooltip with just the 
+        *          data hovered on.
+        * 
+        * *******************************************************************************/
+        private void Bar_Graph_MouseMove(object sender, MouseEventArgs e)
+        {
+            DataPoint point = new DataPoint();
+            point.SetValueXY(e.X, e.Y);
+
+            for (int n = 0; n < 12; n++)
+            {
+                Bar_Chart.Series[0].Points[n].ToolTip = "#VALX : " + string.Format("{0: #,0}", "#VALY");
+            }
+        }
+
+        /********************************************************************************
+        * 
+        * Method: BarForm_Closed
+        * 
+        * Arguments: object sender, EventArgs e
+        * 
+        * Return Type: void
+        * 
+        * Purpose: Creates a new Form1 instance, initializes a new Bar_Form instance, 
+        *          closes the current form, and opens the main menu (Form1).
+        * 
+        * *******************************************************************************/
+        private void BarForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            Form1 form1 = new Form1();
+            Bar_Form bar_Form = new Bar_Form(data_values_2017);
+            form1.Show();
+            this.Hide();
+            bar_Form.Close();
         }
     }
 }

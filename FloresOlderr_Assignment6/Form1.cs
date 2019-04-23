@@ -1,4 +1,22 @@
-﻿using System;
+﻿/********************************************************************************
+ * 
+ * Programmers: Joshua Flores, Adam Olderr
+ * 
+ * z-IDs: 1682720, 1753651
+ * 
+ * Assignment Number: 6
+ * 
+ * Due Date: April 25th, 2019
+ * 
+ * Class: CSCI504
+ * 
+ * Instructor: Daniel Rogness
+ * 
+ * Teaching Assistants: Aravind Muvva, Kiranmayi Manukonda
+ * 
+ * *******************************************************************************/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,14 +33,33 @@ namespace FloresOlderr_Assignment6
     {
         List<string> data = new List<string>();
 
-
+        /********************************************************************************
+        * 
+        * Constructor: Form1
+        * 
+        * Arguments: none.
+        * 
+        * Purpose: Calls the functions to read the data from a file. 
+        * 
+        * *******************************************************************************/
         public Form1()
         {
             InitializeComponent();
-            data = createChart("data.txt");            
+            data = CreateChart("data.txt");
         }
 
-        List<string> createChart(string file_name)
+        /********************************************************************************
+        * 
+        * Method: CreateChart
+        * 
+        * Arguments: string file_name
+        * 
+        * Return Type: List<string>
+        * 
+        * Purpose: Reads the data from the file and stores it in a List of string. 
+        * 
+        * *******************************************************************************/
+        List<string> CreateChart(string file_name)
         {
             List<string> data_values = new List<string>();
             using (StreamReader input = new StreamReader(file_name))
@@ -48,13 +85,21 @@ namespace FloresOlderr_Assignment6
                 number = wordBuilder.ToString();
                 data_values.Add(number);
             }
-            foreach (string s in data_values) {
-                Console.WriteLine("s = " + s);
-                Console.WriteLine("s = " + s);
-            }
             return data_values;
         }
 
+        /********************************************************************************
+        * 
+        * Method: BarButton_Click
+        * 
+        * Arguments: object sender, EventArgs e
+        * 
+        * Return Type: void
+        * 
+        * Purpose: Reads only a subset of the data, passes it to a new form, closes Form1,
+        *          and opens a new form. 
+        * 
+        * *******************************************************************************/
         private void BarButton_Click(object sender, EventArgs e)
         {
             List<string> data_values_2017 = new List<string>();
@@ -74,6 +119,18 @@ namespace FloresOlderr_Assignment6
             form1.Close();
         }
 
+        /********************************************************************************
+        * 
+        * Method: DonutButton_Click
+        * 
+        * Arguments: object sender, EventArgs e
+        * 
+        * Return Type: void
+        * 
+        * Purpose: Reads only a subset of the data, passes it to a new form, closes Form1,
+        *          and opens a new form. 
+        * 
+        * *******************************************************************************/
         private void DonutButton_Click(object sender, EventArgs e)
         {
             List<string> data_values_2017 = new List<string>();
@@ -93,6 +150,18 @@ namespace FloresOlderr_Assignment6
             form1.Close();
         }
 
+        /********************************************************************************
+        * 
+        * Method: LineButton_Click
+        * 
+        * Arguments: object sender, EventArgs e
+        * 
+        * Return Type: void
+        * 
+        * Purpose: Reads the entire set of data from the file, passes it to a new form, 
+        *          closes Form1, and opens a new form. 
+        * 
+        * *******************************************************************************/
         private void LineButton_Click(object sender, EventArgs e)
         {
             List<string> data_values_2014 = new List<string>();
@@ -127,6 +196,18 @@ namespace FloresOlderr_Assignment6
             form1.Close();
         }
 
+        /********************************************************************************
+        * 
+        * Method: AreaButton_Click
+        * 
+        * Arguments: object sender, EventArgs e
+        * 
+        * Return Type: void
+        * 
+        * Purpose: Reads only a subset of the data, passes it to a new form, closes Form1,
+        *          and opens a new form. 
+        * 
+        * *******************************************************************************/
         private void AreaButton_Click(object sender, EventArgs e)
         {
             List<string> data_values_2017 = new List<string>();
@@ -141,6 +222,42 @@ namespace FloresOlderr_Assignment6
             Form1 form1 = new Form1();
             Area_Form area_Form = new Area_Form(data_values_2017);
             area_Form.Show();
+            this.Hide();
+            form1.Close();
+        }
+
+        /********************************************************************************
+        * 
+        * Method: ExitButton_Click
+        * 
+        * Arguments: object sender, EventArgs e
+        * 
+        * Return Type: void
+        * 
+        * Purpose: Exits the main menu (Form1) and stops program execution. 
+        * 
+        * *******************************************************************************/
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            this.Hide();
+            form1.Close();
+        }
+
+        /********************************************************************************
+        * 
+        * Method: Form1_Closed
+        * 
+        * Arguments: object sender, EventArgs e
+        * 
+        * Return Type: void
+        * 
+        * Purpose: Exits the main menu (Form1) and stops program execution. 
+        * 
+        * *******************************************************************************/
+        private void Form1_Closed(object sender, FormClosedEventArgs e)
+        {
+            Form1 form1 = new Form1();
             this.Hide();
             form1.Close();
         }

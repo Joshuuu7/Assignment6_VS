@@ -32,11 +32,12 @@
             this.AreaButton = new System.Windows.Forms.Button();
             this.LineButton = new System.Windows.Forms.Button();
             this.DonutButton = new System.Windows.Forms.Button();
+            this.ExitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BarButton
             // 
-            this.BarButton.Location = new System.Drawing.Point(369, 106);
+            this.BarButton.Location = new System.Drawing.Point(380, 100);
             this.BarButton.Name = "BarButton";
             this.BarButton.Size = new System.Drawing.Size(75, 23);
             this.BarButton.TabIndex = 0;
@@ -46,17 +47,17 @@
             // 
             // AreaButton
             // 
-            this.AreaButton.Location = new System.Drawing.Point(369, 223);
+            this.AreaButton.Location = new System.Drawing.Point(380, 220);
             this.AreaButton.Name = "AreaButton";
             this.AreaButton.Size = new System.Drawing.Size(75, 23);
-            this.AreaButton.TabIndex = 1;
+            this.AreaButton.TabIndex = 3;
             this.AreaButton.Text = "Area";
             this.AreaButton.UseVisualStyleBackColor = true;
             this.AreaButton.Click += new System.EventHandler(this.AreaButton_Click);
             // 
             // LineButton
             // 
-            this.LineButton.Location = new System.Drawing.Point(369, 185);
+            this.LineButton.Location = new System.Drawing.Point(380, 180);
             this.LineButton.Name = "LineButton";
             this.LineButton.Size = new System.Drawing.Size(75, 23);
             this.LineButton.TabIndex = 2;
@@ -66,25 +67,37 @@
             // 
             // DonutButton
             // 
-            this.DonutButton.Location = new System.Drawing.Point(369, 147);
+            this.DonutButton.Location = new System.Drawing.Point(380, 140);
             this.DonutButton.Name = "DonutButton";
             this.DonutButton.Size = new System.Drawing.Size(75, 23);
-            this.DonutButton.TabIndex = 3;
+            this.DonutButton.TabIndex = 1;
             this.DonutButton.Text = "Donut";
             this.DonutButton.UseVisualStyleBackColor = true;
             this.DonutButton.Click += new System.EventHandler(this.DonutButton_Click);
+            // 
+            // ExitButton
+            // 
+            this.ExitButton.Location = new System.Drawing.Point(380, 300);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(75, 23);
+            this.ExitButton.TabIndex = 4;
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.DonutButton);
             this.Controls.Add(this.LineButton);
             this.Controls.Add(this.AreaButton);
             this.Controls.Add(this.BarButton);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_Closed);
             this.ResumeLayout(false);
 
         }
@@ -95,6 +108,7 @@
         private System.Windows.Forms.Button AreaButton;
         private System.Windows.Forms.Button LineButton;
         private System.Windows.Forms.Button DonutButton;
+        private System.Windows.Forms.Button ExitButton;
     }
 }
 

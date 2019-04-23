@@ -72,6 +72,7 @@
             this.Controls.Add(this.Backbutton);
             this.Name = "Donut_Form";
             this.Text = "Donut_Form";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DonutForm_Closed);
             this.Load += new System.EventHandler(this.Donut_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Donut_Chart)).EndInit();
             this.ResumeLayout(false);

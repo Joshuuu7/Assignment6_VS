@@ -62,6 +62,7 @@
             this.Line_Graph.Size = new System.Drawing.Size(760, 320);
             this.Line_Graph.TabIndex = 2;
             this.Line_Graph.Text = "Cool Points";
+            this.Line_Graph.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Line_Graph_MouseMove);
             // 
             // Line_Form
             // 
@@ -72,6 +73,7 @@
             this.Controls.Add(this.Backbutton);
             this.Name = "Line_Form";
             this.Text = "Line_Form";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LineForm_Closed);
             this.Load += new System.EventHandler(this.Line_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Line_Graph)).EndInit();
             this.ResumeLayout(false);

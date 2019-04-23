@@ -61,6 +61,7 @@
             this.Area_Chart.Size = new System.Drawing.Size(760, 320);
             this.Area_Chart.TabIndex = 3;
             this.Area_Chart.Text = "chart1";
+            this.Area_Chart.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Area_Chart_MouseMove);
             // 
             // Area_Form
             // 
@@ -71,6 +72,7 @@
             this.Controls.Add(this.Backbutton);
             this.Name = "Area_Form";
             this.Text = "Area_Form";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AreaForm_Closed);
             this.Load += new System.EventHandler(this.Area_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Area_Chart)).EndInit();
             this.ResumeLayout(false);

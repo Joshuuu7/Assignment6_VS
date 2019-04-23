@@ -1,4 +1,22 @@
-﻿using System;
+﻿/********************************************************************************
+ * 
+ * Programmers: Joshua Flores, Adam Olderr
+ * 
+ * z-IDs: 1682720, 1753651
+ * 
+ * Assignment Number: 6
+ * 
+ * Due Date: April 25th, 2019
+ * 
+ * Class: CSCI504
+ * 
+ * Instructor: Daniel Rogness
+ * 
+ * Teaching Assistants: Aravind Muvva, Kiranmayi Manukonda
+ * 
+ * *******************************************************************************/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,16 +39,41 @@ namespace FloresOlderr_Assignment6
             InitializeComponent();
         }
 
+        /********************************************************************************
+        * 
+        * Method: Backbutton_Click
+        * 
+        * Arguments: object sender, EventArgs e
+        * 
+        * Return Type: void
+        * 
+        * Purpose: Creates a new Form1 instance, initializes a new Donut_Form instance, 
+        *          closes the current form, and opens the main menu (Form1).
+        * 
+        * *******************************************************************************/
         private void Backbutton_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
-
             Donut_Form donut_Form = new Donut_Form(data_values_2017);
             form1.Show();
             this.Hide();
             donut_Form.Close();
         }
 
+        /********************************************************************************
+        * 
+        * Method: Donut_Form_Load
+        * 
+        * Arguments: object sender, EventArgs e
+        * 
+        * Return Type: void
+        * 
+        * Purpose: Initalizes the List of double with the passed in the form, converts the
+        *          list to string, and uses data as input for chart. X-axis display also
+        *          depends on the count of elements. Chart formats labels, axes, and
+        *          colors accordinlgy and differently by color.
+        * 
+        * *******************************************************************************/
         private void Donut_Form_Load(object sender, EventArgs e)
         {
             Donut_Chart.Series.Clear();
@@ -58,9 +101,9 @@ namespace FloresOlderr_Assignment6
             series_2017.Points.DataBindXY(months, double_data_2017);
             series_2017.IsValueShownAsLabel = true;
             series_2017.LabelFormat = "{ #,0 }";
-            series_2017.LabelForeColor = Color.White;         
+            series_2017.LabelForeColor = Color.White;
 
-            // Frist parameter is X-Axis and Second is Collection of Y- Axis
+            // Frist parameter is X-Axis and Second is Collection of Y- Axis. Values added to graph. 
 
             series_2017.Points[0].Color = System.Drawing.Color.Orange;
             series_2017.Points[1].Color = System.Drawing.Color.Green;
@@ -78,6 +121,18 @@ namespace FloresOlderr_Assignment6
             Donut_Chart.Series.Add(series_2017);
         }
 
+        /********************************************************************************
+        * 
+        * Method: Donut_Chart_MouseMove
+        * 
+        * Arguments: object sender, EventArgs e
+        * 
+        * Return Type: void
+        * 
+        * Purpose: Takes the mouse coordinates and generates a tooltip with just the 
+        *          data hovered on.
+        * 
+        * *******************************************************************************/
         private void Donut_Chart_MouseMove(object sender, MouseEventArgs e)
         {
             HitTestResult result = Donut_Chart.HitTest(e.X, e.Y);
@@ -91,6 +146,27 @@ namespace FloresOlderr_Assignment6
             {
                 Donut_Chart.Series[0].Points[n].ToolTip = "#VALX : " + string.Format("{0: #,0}", "#VALY");
             }
+        }
+
+        /********************************************************************************
+        * 
+        * Method: DonutForm_Closed
+        * 
+        * Arguments: object sender, EventArgs e
+        * 
+        * Return Type: void
+        * 
+        * Purpose: Creates a new Form1 instance, initializes a new Donut_Form instance, 
+        *          closes the current form, and opens the main menu (Form1).
+        * 
+        * *******************************************************************************/
+        private void DonutForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            Form1 form1 = new Form1();
+            Donut_Form donut_Form = new Donut_Form(data_values_2017);
+            form1.Show();
+            this.Hide();
+            donut_Form.Close();
         }
     }
 }

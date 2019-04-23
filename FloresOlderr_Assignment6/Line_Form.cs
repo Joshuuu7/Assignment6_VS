@@ -1,4 +1,22 @@
-﻿using System;
+﻿/********************************************************************************
+ * 
+ * Programmers: Joshua Flores, Adam Olderr
+ * 
+ * z-IDs: 1682720, 1753651
+ * 
+ * Assignment Number: 6
+ * 
+ * Due Date: April 25th, 2019
+ * 
+ * Class: CSCI504
+ * 
+ * Instructor: Daniel Rogness
+ * 
+ * Teaching Assistants: Aravind Muvva, Kiranmayi Manukonda
+ * 
+ * *******************************************************************************/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,17 +47,42 @@ namespace FloresOlderr_Assignment6
             InitializeComponent();
         }
 
+        /********************************************************************************
+        * 
+        * Method: Backbutton_Click
+        * 
+        * Arguments: object sender, EventArgs e
+        * 
+        * Return Type: void
+        * 
+        * Purpose: Creates a new Form1 instance, initializes a new Line_Form instance, 
+        *          closes the current form, and opens the main menu (Form1).
+        * 
+        * *******************************************************************************/
         private void Backbutton_Click(object sender, EventArgs e)
         {
-
             Form1 form1 = new Form1();
-
             Line_Form line_Form = new Line_Form(data_values_2014, data_values_2015, data_values_2016, data_values_2017);
             form1.Show();
             this.Hide();
             line_Form.Close();
         }
 
+        /********************************************************************************
+        * 
+        * Method: Line_Form_Load
+        * 
+        * Arguments: object sender, EventArgs e
+        * 
+        * Return Type: void
+        * 
+        * Purpose: Initalizes the List of double with the passed in the form, converts the
+        *          list to string, and uses data as input for chart. X-axis display also
+        *          depends on the count of elements. Chart formats labels, axes, and
+        *          colors accordinlgy and differently by color. This chart uses four 
+        *          similar groups of data.
+        * 
+        * *******************************************************************************/
         private void Line_Form_Load(object sender, EventArgs e)
         {
             Line_Graph.Series.Clear();
@@ -97,9 +140,8 @@ namespace FloresOlderr_Assignment6
             series_2016.ChartType = SeriesChartType.Line;
             series_2017.ChartType = SeriesChartType.Line;
 
-            // Frist parameter is X-Axis and Second is Collection of Y- Axis
+            // Frist parameter is X-Axis and Second is Collection of Y- Axis. Values added to graph. 
 
-            // Add values to the graph
             series_2014.Points.DataBindXY( months, data_values_2014 );
             series_2015.Points.DataBindXY( months, data_values_2015 );
             series_2016.Points.DataBindXY( months, data_values_2016 );
@@ -150,6 +192,50 @@ namespace FloresOlderr_Assignment6
             Line_Graph.Series.Add(series_2015);
             Line_Graph.Series.Add(series_2016);
             Line_Graph.Series.Add(series_2017);
+        }
+
+        /********************************************************************************
+        * 
+        * Method: Line_Form_MouseMove
+        * 
+        * Arguments: object sender, EventArgs e
+        * 
+        * Return Type: void
+        * 
+        * Purpose: Takes the mouse coordinates and generates a tooltip with just the 
+        *          data hovered on.
+        * 
+        * *******************************************************************************/
+        private void Line_Graph_MouseMove(object sender, MouseEventArgs e)
+        {
+            DataPoint point = new DataPoint();
+            point.SetValueXY(e.X, e.Y);
+
+            for (int n = 0; n < 12; n++)
+            {
+                Line_Graph.Series[0].Points[n].ToolTip = "#VALX : " + string.Format("{0: #,0}", "#VALY");
+            }
+        }
+
+        /********************************************************************************
+        * 
+        * Method: LineForm_Closed
+        * 
+        * Arguments: object sender, EventArgs e
+        * 
+        * Return Type: void
+        * 
+        * Purpose: Creates a new Form1 instance, initializes a new Line_Form instance, 
+        *          closes the current form, and opens the main menu (Form1).
+        * 
+        * *******************************************************************************/
+        private void LineForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            Form1 form1 = new Form1();
+            Line_Form line_Form = new Line_Form(data_values_2014, data_values_2015, data_values_2016, data_values_2017);
+            form1.Show();
+            this.Hide();
+            line_Form.Close();
         }
     }
 }
