@@ -33,6 +33,15 @@ namespace FloresOlderr_Assignment6
     {
         public List<string> data_values_2017;
 
+        /********************************************************************************
+        * 
+        * Constructor: Bar_Form
+        * 
+        * Arguments: List<string> data_values_2017
+        * 
+        * Purpose: Creates and initializes an Area_Form object with a List of string. 
+        * 
+        * *******************************************************************************/
         public Bar_Form(List<string> data_values_2017)
         {
             this.data_values_2017 = data_values_2017;

@@ -37,7 +37,7 @@ namespace FloresOlderr_Assignment6
         * 
         * Constructor: Form1
         * 
-        * Arguments: none.
+        * Arguments: none
         * 
         * Purpose: Calls the functions to read the data from a file. 
         * 
@@ -242,6 +242,7 @@ namespace FloresOlderr_Assignment6
             Form1 form1 = new Form1();
             this.Hide();
             form1.Close();
+            Environment.Exit(0);
         }
 
         /********************************************************************************
@@ -260,6 +261,7 @@ namespace FloresOlderr_Assignment6
             Form1 form1 = new Form1();
             this.Hide();
             form1.Close();
+            Environment.Exit(0);
         }
     }
 }

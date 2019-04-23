@@ -38,6 +38,16 @@ namespace FloresOlderr_Assignment6
 
         enum Month { January, February, March, April, May, June, July, August, September, October, November, December };
 
+        /********************************************************************************
+        * 
+        * Constructor: Line_Form
+        * 
+        * Arguments: List<string> data_values_2014, List<string> data_values_2015, 
+        *            List<string> data_values_2016, List<string> data_values_2017
+        * 
+        * Purpose: Creates and initializes an Line_Form object with four Lists of string. 
+        * 
+        * *******************************************************************************/
         public Line_Form(List<string> data_values_2014, List<string> data_values_2015, List<string> data_values_2016, List<string> data_values_2017)
         {
             this.data_values_2014 = data_values_2014;
