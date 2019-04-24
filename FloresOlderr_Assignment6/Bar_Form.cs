@@ -103,6 +103,11 @@ namespace FloresOlderr_Assignment6
                 time_string.Add(time);
             }
 
+            foreach (string time_iteration in time_string)
+            {
+                Console.WriteLine(time_iteration);
+            }
+
             Title Line_Chart_Title = new Title("Bike Share Statistics (2017)" + Environment.NewLine + "(Amount rented per month in seconds)", Docking.Top, new Font("Yu Gothic", 8, FontStyle.Bold), Color.Black);
 
             Bar_Chart.Titles.Add(Line_Chart_Title);
@@ -118,22 +123,31 @@ namespace FloresOlderr_Assignment6
 
             series_2017.Points.DataBindXY(months, data_values_2017);
             series_2017.IsValueShownAsLabel = true;
+            string [] format_string_label = new string[12];
             string format_string = "";
+            string mins_secs = "";
+            for (int i = 0; i < time_string.Count(); i++)
+            {
+                format_string_label[i] = time_string[i];
+                format_string =  "Total (seconds) = " + "{ #,0.# }" + " Mins : Secs = " + format_string_label[i];
+                mins_secs = " Mins : Secs = " + format_string_label[i];
+                //Bar_Chart.ChartAreas[0].AxisX.CustomLabels.Add(format_string);
+                CustomLabel label = new CustomLabel( 0, 0, mins_secs, 0,LabelMarkStyle.None);
+                Bar_Chart.ChartAreas[i].AxisX.CustomLabels.Add(label);
 
-            //foreach (string time_format in time_string)
-            //{
-            //    format_string = "{ 0: #,0.# }" + " Minutes : Seconds = " + time_format;
-            //    series_2017.LabelFormat = format_string;
-            //}
+                //series_2017.LabelFormat = format_string;
+            }
 
-            series_2017.LabelFormat = "{ #,0.# }";
+            //series_2017.LabelFormat = "{ #,0.# }";
 
             series_2017.LabelForeColor = Color.Firebrick;
+            //series_2017.Font = new Font(base.Font, FontStyle.Bold);
 
             Bar_Chart.ChartAreas["ChartArea1"].AxisX.Interval = 1;
             Bar_Chart.ChartAreas["ChartArea1"].AxisX.Minimum = 1;
             Bar_Chart.ChartAreas["ChartArea1"].AxisX.Maximum = months.Count();
             Bar_Chart.ChartAreas["ChartArea1"].AxisX.LabelStyle.Angle = -45;
+            Bar_Chart.ChartAreas["ChartArea1"].AxisX.MajorGrid.LineWidth = 0;
 
             Bar_Chart.ChartAreas["ChartArea1"].AxisY.Interval = 1000;
             Bar_Chart.ChartAreas["ChartArea1"].AxisY.Minimum = 2500; //lowest - 100;

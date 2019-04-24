@@ -110,7 +110,6 @@ namespace FloresOlderr_Assignment6
                 if (i >= 36 && i < 48)
                 {
                     data_values_2017.Add(data.ElementAt(i));
-                    Console.WriteLine(data.ElementAt(i));
                 }
             }
 
@@ -266,6 +265,17 @@ namespace FloresOlderr_Assignment6
             Environment.Exit(0);
         }
 
+        /********************************************************************************
+        * 
+        * Method: JokeButton_Click
+        * 
+        * Arguments: object sender, EventArgs e
+        * 
+        * Return Type: void
+        * 
+        * Purpose: To hopefully put a smile on the T.A.'s face :). 
+        * 
+        * *******************************************************************************/
         private void JokeButton_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();

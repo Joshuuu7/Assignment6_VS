@@ -34,6 +34,7 @@
             this.DonutButton = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
             this.JokeButton = new System.Windows.Forms.Button();
+            this.MenuTitleLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BarButton
@@ -96,11 +97,22 @@
             this.JokeButton.UseVisualStyleBackColor = true;
             this.JokeButton.Click += new System.EventHandler(this.JokeButton_Click);
             // 
+            // MenuTitleLabel
+            // 
+            this.MenuTitleLabel.AutoSize = true;
+            this.MenuTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MenuTitleLabel.Location = new System.Drawing.Point(320, 40);
+            this.MenuTitleLabel.Name = "MenuTitleLabel";
+            this.MenuTitleLabel.Size = new System.Drawing.Size(197, 24);
+            this.MenuTitleLabel.TabIndex = 6;
+            this.MenuTitleLabel.Text = "Bike Share Statistics";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.MenuTitleLabel);
             this.Controls.Add(this.JokeButton);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.DonutButton);
@@ -111,6 +123,7 @@
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_Closed);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -122,6 +135,7 @@
         private System.Windows.Forms.Button DonutButton;
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Button JokeButton;
+        private System.Windows.Forms.Label MenuTitleLabel;
     }
 }
 
