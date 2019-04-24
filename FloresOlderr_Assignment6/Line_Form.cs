@@ -128,6 +128,7 @@ namespace FloresOlderr_Assignment6
                 double_data_2017.Add(string_to_number_2017);
             }
 
+            //Commented out for proof of dynamic wroking code for resizing
             //double lowest = double_data.Min();
             //double highest = double_data.Max();
             //double lowest_value = Convert.ToDouble(data_values.Min(x => x.Min()));
@@ -161,26 +162,24 @@ namespace FloresOlderr_Assignment6
             {
                 point.ToolTip = "(" + months + ", " + point.YValues[0] + ")";
             }
-            //series_2014.Font = this.GetFontForSeries();
-            //series_2014.LabelForeColor = this.GetLabelColor();
 
             series_2014.Points.DataBindXY(months, data_values_2014);
-            series_2014.IsValueShownAsLabel = true;
+            series_2014.IsValueShownAsLabel = false;
             series_2014.LabelFormat = "{ #,0.# }";
             series_2014.LabelForeColor = Color.Green;
 
             series_2015.Points.DataBindXY(months, data_values_2015);
-            series_2015.IsValueShownAsLabel = true;
+            series_2015.IsValueShownAsLabel = false;
             series_2015.LabelFormat = "{ #,0.# }";
             series_2015.LabelForeColor = Color.Indigo;
 
             series_2016.Points.DataBindXY(months, data_values_2016);
-            series_2016.IsValueShownAsLabel = true;
+            series_2016.IsValueShownAsLabel = false;
             series_2016.LabelFormat = "{ #,0.# }";
             series_2016.LabelForeColor = Color.DarkOrange;
 
             series_2017.Points.DataBindXY(months, data_values_2017);
-            series_2017.IsValueShownAsLabel = true;
+            series_2017.IsValueShownAsLabel = false;
             series_2017.LabelFormat = "{ #,0.# }";
             series_2017.LabelForeColor = Color.Salmon;
 

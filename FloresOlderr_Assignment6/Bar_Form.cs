@@ -88,9 +88,6 @@ namespace FloresOlderr_Assignment6
             Bar_Chart.Series.Clear();
 
             List<double> double_data_2017 = new List<double>();
-            List<string> time_string = new List<string>();
-            double seconds = 0;
-            string time = "";
 
             double string_to_number_2017 = 0;
 
@@ -98,14 +95,6 @@ namespace FloresOlderr_Assignment6
             {
                 string_to_number_2017 = Convert.ToDouble(data);
                 double_data_2017.Add(string_to_number_2017);
-                seconds = Convert.ToInt32(Convert.ToDouble(data));
-                time = TimeDisplay(seconds);
-                time_string.Add(time);
-            }
-
-            foreach (string time_iteration in time_string)
-            {
-                Console.WriteLine(time_iteration);
             }
 
             Title Line_Chart_Title = new Title("Bike Share Statistics (2017)" + Environment.NewLine + "(Amount rented per month in seconds)", Docking.Top, new Font("Yu Gothic", 8, FontStyle.Bold), Color.Black);
@@ -124,24 +113,11 @@ namespace FloresOlderr_Assignment6
             series_2017.Points.DataBindXY(months, data_values_2017);
             series_2017.IsValueShownAsLabel = true;
             string [] format_string_label = new string[12];
-            string format_string = "";
-            string mins_secs = "";
-            for (int i = 0; i < time_string.Count(); i++)
-            {
-                format_string_label[i] = time_string[i];
-                format_string =  "Total (seconds) = " + "{ #,0.# }" + " Mins : Secs = " + format_string_label[i];
-                mins_secs = " Mins : Secs = " + format_string_label[i];
-                //Bar_Chart.ChartAreas[0].AxisX.CustomLabels.Add(format_string);
-                CustomLabel label = new CustomLabel( 0, 0, mins_secs, 0,LabelMarkStyle.None);
-                Bar_Chart.ChartAreas[i].AxisX.CustomLabels.Add(label);
 
-                //series_2017.LabelFormat = format_string;
-            }
-
-            //series_2017.LabelFormat = "{ #,0.# }";
+            series_2017.LabelFormat = "{ #,0.# }";
 
             series_2017.LabelForeColor = Color.Firebrick;
-            //series_2017.Font = new Font(base.Font, FontStyle.Bold);
+            series_2017.Font = new Font(base.Font, FontStyle.Bold);
 
             Bar_Chart.ChartAreas["ChartArea1"].AxisX.Interval = 1;
             Bar_Chart.ChartAreas["ChartArea1"].AxisX.Minimum = 1;
@@ -201,17 +177,6 @@ namespace FloresOlderr_Assignment6
             form1.Show();
             this.Hide();
             bar_Form.Close();
-        }
-
-        int[] MinutesAndSeconds(double seconds)
-        {
-            return new int[] { Convert.ToInt32(seconds / 60), Convert.ToInt32(seconds % 60) };
-        }
-
-        string TimeDisplay(double seconds)
-        {
-            int[] minutesAndSeconds = MinutesAndSeconds(seconds);
-            return minutesAndSeconds[0] + ":" + minutesAndSeconds[1];
         }
     }
 }
